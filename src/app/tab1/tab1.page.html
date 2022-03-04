@@ -1,9 +1,38 @@
- <h1>Prueba</h1>
-
+ 
 <ion-content>
   
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col>
+        <h3>Peliculas Nuevas</h3>
+      </ion-col> 
+    </ion-row>
+  </ion-grid>
 
-  <ion-slides [options]="slideOpts">
+  <app-slideshow-backdrop [peliculas]="peliculasRecientes"></app-slideshow-backdrop>
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col class="posters">
+        <h3>Cartelera</h3>
+      </ion-col> 
+    </ion-row>
+  </ion-grid>
+
+  <app-slideshow-poster [peliculas]="peliculasRecientes"></app-slideshow-poster>
+  
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col class="posters">
+        <h3>Populares</h3>
+      </ion-col> 
+    </ion-row>
+  </ion-grid>
+
+ 
+  <app-slideshow-pares [peliculas]="populares"
+                        (cargarMas)="cargarMas()"></app-slideshow-pares>
+  <!-- <ion-slides [options]="slideOpts">
     <ion-slide *ngFor="let pelicula of peliculasRecientes">
  
       <ion-card>
@@ -11,6 +40,14 @@
       </ion-card>
 
     </ion-slide>
-  </ion-slides>
+  </ion-slides> -->
+<!-- 
+  <swiper [slidesPerView]="1.1" [freeMode]="true" >
+    <ng-template swiperSlide *ngFor="let pelicula of peliculasRecientes" >
+      <ion-card>
+        <img [src] = "pelicula.backdrop_path | imagen" >
+      </ion-card>
+    </ng-template> 
+  </swiper> -->
 
 </ion-content>
