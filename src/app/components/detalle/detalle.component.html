@@ -1,0 +1,42 @@
+ <ion-content>
+
+
+  <ion-label class="titulo">
+    <h1> {{ pelicula.title }} </h1>
+  </ion-label>
+
+  <img [src]="pelicula.backdrop_path | imagen" *ngIf="pelicula.backdrop_path">
+
+  <ion-grid>
+    <ion-row>
+
+      <ion-col size="4" class="poster-detalle-sobre">
+        
+        <ion-card class="poster">
+          <img [src]="pelicula.poster_path | imagen" 
+          class="poster"
+          *ngIf="pelicula.poster_path">          
+        </ion-card>
+      </ion-col> 
+
+      <ion-col>
+        <ion-item>
+          <ion-icon slot="start" name="thumbs-up" color="primary"></ion-icon>
+          <ion-label>Rating</ion-label>
+          <ion-note slot="end" color="primary">
+            {{ pelicula.vote_average }}
+          </ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-icon slot="start" name="contacts" color="primary"></ion-icon>
+          <ion-label>Votos</ion-label>
+          <ion-note slot="end" color="primary">
+            {{ pelicula.vote_count }}
+          </ion-note>
+        </ion-item>        
+      </ion-col> 
+
+    </ion-row>
+  </ion-grid>
+
+ </ion-content>
