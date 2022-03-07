@@ -21,7 +21,7 @@ export class MoviesService {
     query = URL + query;
     query += `&api_key=${ apikey }&language=es&include_image_language=es`;
 
-    console.log(query);
+    //(query);
     return this.http.get<T>( query );
   }
 
@@ -62,6 +62,10 @@ export class MoviesService {
 
   getActoresPelicula(id: string){
     return this.ejecutarQuery<RespuestaCredits>(`/movie/${ id }/credits?a=1`)
+  }
+
+  buscarPeliculas( texto: string ){
+    return this.ejecutarQuery<RespuestaMDB>(`/search/movie?query=${ texto }`);
   }
 
 }
