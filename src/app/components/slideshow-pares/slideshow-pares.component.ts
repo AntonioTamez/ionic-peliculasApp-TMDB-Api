@@ -40,5 +40,5 @@ export class SlideshowParesComponent implements OnInit {
     modal.present();
 
   }
-  s
+  
 }

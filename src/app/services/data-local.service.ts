@@ -20,7 +20,7 @@ export class DataLocalService {
   async presentToast(message: string) {
     const toast = await this.toastCtrl.create({
       message: message,
-      duration: 1500
+      duration: 200
     });
     toast.present();
   }
