@@ -17,7 +17,24 @@ export class SlideshowParesComponent implements OnInit {
   slideOpts = {
     slidesPerView: 3.3, 
     freeMode: true,
-    spaceBetween: -10
+    spaceBetween: -10,
+    breakpoints: {
+      // when window width is >= 320px
+      320: {
+        slidesPerView: 3.5,
+        spaceBetween: 10
+      },
+      // when window width is >= 480px
+      480: {
+        slidesPerView: 5.5,
+        spaceBetween: 20
+      },
+      // when window width is >= 640px
+      640: {
+        slidesPerView: 7.5,
+        spaceBetween: 30
+      }
+    }
   };
 
   constructor(private modalCtrl : ModalController) { }
@@ -40,5 +57,5 @@ export class SlideshowParesComponent implements OnInit {
     modal.present();
 
   }
-  s
+  
 }

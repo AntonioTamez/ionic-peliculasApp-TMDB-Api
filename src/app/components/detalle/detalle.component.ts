@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MoviesService } from '../../services/movies.service';
 import { PeliculaDetalle, Cast } from '../../interfaces/interfaces';
 import { ModalController } from '@ionic/angular';
+import { DataLocalService } from '../../services/data-local.service';
 
 @Component({
   selector: 'app-detalle',
@@ -14,6 +15,7 @@ export class DetalleComponent implements OnInit {
   pelicula: PeliculaDetalle = {};
   actores: Cast[] = [];
   oculto = 150;
+  iconName: string = 'star-outline'
 
   slideOptActores = {
     slidesPerView: 3.3,
@@ -22,10 +24,15 @@ export class DetalleComponent implements OnInit {
   }
 
   constructor(private moviesService: MoviesService,
-              private modalCtrl: ModalController) { }
+              private modalCtrl: ModalController,
+              private dataLocal: DataLocalService) { }
 
-  ngOnInit() {
+   ngOnInit() {
     //console.log('Id', this.id);
+
+    this.dataLocal.existePelicula( this.id )
+      .then( existe => this.iconName = (existe) ? 'star' : 'star-outline' );
+     
 
     this.moviesService.getPeliculaDetalle( this.id )
     .subscribe( resp => {
@@ -44,6 +51,11 @@ export class DetalleComponent implements OnInit {
 
   regresar() {
     this.modalCtrl.dismiss();
+  }
+
+  favorito() {   
+    const existe = this.dataLocal.guardarPelicula( this.pelicula );
+    this.iconName = ( existe ) ? 'star' : 'star-outline';
   }
 
 }

@@ -1,0 +1,6 @@
+{
+	"appId": "ats.recipro.peliculas",
+	"appName": "peliculas",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
