@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.peliculas',
+  appId: 'ats.recipro.peliculas',
   appName: 'peliculas',
   webDir: 'www',
   bundledWebRuntime: false
